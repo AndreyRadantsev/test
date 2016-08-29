@@ -1,5 +1,11 @@
-.container {
-  background-color: #eee;
-  color: #000;
-  font-size: 36px;
-}
+// vars
+$green: #8cc34b;
+
+// layout
+@import "misc/fonts";
+@import "misc/mixins";
+@import "misc/normalize";
+@import "misc/adjustment";
+
+// styles
+@import "sections/header";

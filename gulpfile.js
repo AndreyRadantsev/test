@@ -40,7 +40,7 @@ gulp.task('watch', function() {
 });
 // Задача 'styles' выполняет сборку наших стилей.
 gulp.task('styles', function() {
-	return gulp.src('src/styles/{main,about}.scss')
+	return gulp.src('src/styles/*.scss')
 		.pipe(plumber({ // plumber - плагин для отловли ошибок.
 			errorHandler: notify.onError(function(err) { // nofity - представление ошибок в удобном для вас виде.
 				return {

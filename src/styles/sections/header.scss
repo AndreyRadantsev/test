@@ -1,0 +1,20 @@
+.header {
+  background-color: $green;
+  height: 90px;
+}
+
+.header__left {
+  width: 50%;
+}
+
+.user__avatar {
+  display: inline-block;;
+}
+
+.user__disc {
+  display: inline-block;
+}
+
+.header__right {
+  width: 50%;
+}
