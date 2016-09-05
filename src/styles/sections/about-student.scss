@@ -1,0 +1,68 @@
+.about-student {
+  background: #fff;
+  padding: 70px 10px;
+  @extend %clearfix;
+}
+
+.about-student__title {
+  color: #000;
+  @include font(42px, medium);
+  line-height: 1.22;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.about-student__disc {
+  color: $grey;
+  @include font(21px, light);
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.helllo {
+  width: 50%;
+  float: left;
+}
+
+.hello__left {
+  width: 30%;
+  float: left;
+}
+
+.hello__right {
+  width: 70%;
+  float: right;
+}
+
+.experience {
+  width: 50%;
+  float: right;
+}
+
+.experience__left {
+  width: 30%;
+  float: left;
+}
+
+.experience__right {
+  width: 70%;
+  float: right;
+}
+
+.hello__title, .experience__title {
+  color: #000;
+  @include font(21px, regular);
+  line-height: 1.42;
+  margin: 0 0 10px 0;
+}
+
+
+.hello__disc, .experience__disc {
+  color: $grey;
+  @include font(14px, light);
+  line-height: 1.72;
+}
+
+.hello__disc-link {
+  color: #03a9f4;
+}

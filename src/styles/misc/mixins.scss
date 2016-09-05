@@ -12,9 +12,7 @@
 	}
 }
 
-@mixin inlineblock($valign: top) {
-	display: inline-block;
-	vertical-align: $valign;
-}
-
-
+// @mixin inlineblock($valign: top) {
+// 	display: inline-block;
+// 	vertical-align: $valign;
+// }

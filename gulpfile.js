@@ -80,6 +80,13 @@ gulp.task('styles', function() {
 		.pipe(rename('build.css')) //Переименование
 		.pipe(gulp.dest('build/styles'));
 });
+
+//Задача для удаление спрайта.
+gulp.task('cleanSprite', function() {
+	return gulp.src('src/assets/img/sprite/')
+		.pipe(clean());
+})
+
 //Задача для удаление папки build.
 gulp.task('clean', function() {
 	return gulp.src('build/')
@@ -122,10 +129,11 @@ gulp.task('assets', function() {
 		.pipe(gulp.dest('./build/assets'));
 });
 
-//Задачи для сборки спрайта SVG
 
+
+//Задача для сборки спрайта SVG
 gulp.task('sprite', function() {
-  return gulp.src('src/assets/img/icons/*.svg')
+  return gulp.src('./src/assets/img/icons/*.svg')
     // минифицируем svg
     .pipe(svgmin({
       js2svg: {
@@ -145,6 +153,6 @@ gulp.task('sprite', function() {
     .pipe(replace('&gt;', '>'))
     // build svg sprite
     .pipe(svgSprite(config))
-    .pipe(gulp.dest('src/assets/img/sprite'));
+    .pipe(gulp.dest('./src/assets/img/sprite'));
 });
 
