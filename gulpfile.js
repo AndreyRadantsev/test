@@ -14,6 +14,26 @@ var wiredep = require('gulp-wiredep');
 var useref = require('gulp-useref');
 var browserSync = require('browser-sync').create();
 
+//Переменные для SVG
+var svgSprite = require('gulp-svg-sprite'),
+  	svgmin = require('gulp-svgmin'),
+  	cheerio = require('gulp-cheerio'),
+ 	replace = require('gulp-replace');
+
+var config = {
+  mode: {
+    symbol: {
+      sprite: "../sprite.svg",
+      render: {
+        scss: {
+          dest: '../../../../styles/misc/sprite.scss'
+        }
+      }
+    }
+  }
+};
+
+
 // Задача с названием 'default' запускается автоматически по команде 'gulp' в консоле.
 // Эта конструкция работает синхронно, сначала выполняется задача 'clean' и только после ее завершнения запускается 'dev'.
 gulp.task('default', ['clean'], function() {
@@ -101,3 +121,30 @@ gulp.task('assets', function() {
 	return gulp.src('./src/assets/**/*.*')
 		.pipe(gulp.dest('./build/assets'));
 });
+
+//Задачи для сборки спрайта SVG
+
+gulp.task('sprite', function() {
+  return gulp.src('src/assets/img/icons/*.svg')
+    // минифицируем svg
+    .pipe(svgmin({
+      js2svg: {
+        pretty: true
+      }
+    }))
+    // удалить все атрибуты fill, style and stroke в фигурах
+    .pipe(cheerio({
+      run: function($) {
+        $('[fill]').removeAttr('fill');
+        $('[stroke]').removeAttr('stroke');
+        $('[style]').removeAttr('style');
+      },
+      parserOptions: { xmlMode: true }
+    }))
+    // cheerio плагин заменит, если появилась, скобка '&gt;', на нормальную.
+    .pipe(replace('&gt;', '>'))
+    // build svg sprite
+    .pipe(svgSprite(config))
+    .pipe(gulp.dest('src/assets/img/sprite'));
+});
+

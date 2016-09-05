@@ -1,20 +1,85 @@
 .header {
   background-color: $green;
   height: 90px;
+  box-shadow: 0 5px 5px rgba(0,0,0, .2);
+}
+
+.header {
+  .container {
+    width: 1150px;
+    @extend %clearfix;
+  }
 }
 
 .header__left {
   width: 50%;
+  float: left;
+
+  &:before {
+    content:"";
+    height: 100px;
+    width: 0px;
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
 .user__avatar {
-  display: inline-block;;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 15px 0 0;
+}
+
+.user__avatar-img {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+
 }
 
 .user__disc {
   display: inline-block;
+  vertical-align: middle;
+}
+
+.user__disc-name {
+  color: #fff;
+  @include font(21px, medium);
+  line-height: 1.22;
+}
+
+.user__disc-mail-link {
+  color: rgba(255, 255, 255, .7);
+  @include font(14px, medium);
+  text-decoration: none;
 }
 
 .header__right {
   width: 50%;
+  float: right;
+  text-align: right;
+}
+
+.socials {
+  margin: 30px 0 0 0;
+  .icons {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 17px 0 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.icon {
+  fill: #fff;
+  fill-opacity: .7;
+  transition: fill-opacity .3s;
+
+  &:hover {
+    fill-opacity: 1;
+  }
 }

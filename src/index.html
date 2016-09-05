@@ -16,7 +16,10 @@
 
 	<link rel="stylesheet" href="styles/build.css">
 
-	<script src="js/modernizr.js"></script>
+	<script src="./js/svg4everybody.js"></script>
+  <script>
+  svg4everybody();
+  </script>
 
 </head>
 <body>
@@ -29,29 +32,43 @@
 			<div class="container">
 				<div class="header__left">
 					<div class="user__avatar">
-						<img src="/img/user.png" alt="" class="user__avatar-img">
+						<a href="#" class="user__avatar-link">
+							<img src="assets/img/user.png" alt="" class="user__avatar-img">
+						</a>
 					</div>
 					<div class="user__disc">
 						<div class="user__disc-name">
 							<p>Быстров Борис Викторович</p>
 						</div>
 						<div class="user__disc-mail">
-							<p><a href="mailto:bistrov@gmail.com" class="user__disc-mail-link">bistrov@gmail.com</a></p>
+							<p><a href="mailto:bystrov@gmail.com" class="user__disc-mail-link">bystrov@gmail.com</a></p>
 						</div>
 					</div>
 				</div>
 				<div class="header__right">
-					<div class="socials">
-						<div class="socials__git">
-
-						</div>
-						<div class="socials__skype">
-
-						</div>
-						<div class="socials__vk">
-
-						</div>
-					</div>
+					<ul class="socials">
+						<li class="icons socials__git">
+							<a href="https://github.com/" class="socials__link" target="_blank">
+								<svg class="icon svg-git-dims">
+			  					<use xlink:href="assets/img/sprite/sprite.svg#git"></use>
+							  </svg>
+							</a>
+						</li>
+						<li class="icons socials__skype">
+							<a href="https://www.skype.com/ru/" class="socials__link" target="_blank">
+								<svg class="icon svg-sk-dims">
+			  					<use xlink:href="assets/img/sprite/sprite.svg#sk"></use>
+							  </svg>
+							</a>
+						</li>
+						<li class="icons socials__vk">
+							<a href="https://vk.com/" class="socials__link" target="_blank">
+								<svg class="icon svg-vk-dims">
+			  					<use xlink:href="assets/img/sprite/sprite.svg#vk"></use>
+							  </svg>
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</header>
