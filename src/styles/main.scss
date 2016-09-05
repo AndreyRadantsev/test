@@ -1,6 +1,7 @@
 // vars
 $green: #8cc34b;
 $grey: #727272;
+$black: #212121;
 
 // layout
 @import "misc/fonts";
@@ -13,3 +14,4 @@ $grey: #727272;
 @import "sections/header";
 @import "sections/about-student";
 @import "sections/courses";
+@import "sections/footer";

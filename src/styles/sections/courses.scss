@@ -1,0 +1,19 @@
+.courses {
+  background-image: url(../assets/img/pattern.png);
+  padding: 70px 10px;
+}
+
+.courses__title {
+  color: #000;
+  @include font(42px, medium);
+  line-height: 1.22;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.courses__disc {
+  color: $grey;
+  @include font(21px, light);
+  text-align: center;
+  margin: 0 0 20px 0;
+}

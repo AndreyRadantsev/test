@@ -1,0 +1,13 @@
+.footer {
+  background-color: $black;
+  text-align: center;
+}
+
+.footer__text {
+  display: inline-block;
+  width: 510px;
+  color: rgba(255, 255, 255, .5);
+  @include font(14px, regular);
+  line-height: 1.62;
+  padding: 17px 0 0 0;
+}
