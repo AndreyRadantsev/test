@@ -16,11 +16,11 @@
   color: $grey;
   @include font(21px, light);
   text-align: center;
-  margin: 0 0 20px 0;
+  margin: 0 0 30px 0;
 }
 
 .helllo {
-  width: 50%;
+  width: 48%;
   float: left;
 }
 
@@ -29,13 +29,17 @@
   float: left;
 }
 
+.hello__img {
+
+}
+
 .hello__right {
-  width: 70%;
+  width: 65%;
   float: right;
 }
 
 .experience {
-  width: 50%;
+  width: 48%;
   float: right;
 }
 
@@ -45,7 +49,7 @@
 }
 
 .experience__right {
-  width: 70%;
+  width: 65%;
   float: right;
 }
 
