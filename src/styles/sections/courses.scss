@@ -1,6 +1,6 @@
 .courses {
   background-image: url(../assets/img/pattern.png);
-  padding: 70px 10px;
+  padding: 70px 10px 50px 10px;
 }
 
 .courses__title {
@@ -16,4 +16,133 @@
   @include font(21px, light);
   text-align: center;
   margin: 0 0 40px 0;
+}
+
+.courses__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.courses__item {
+  width: 300px;
+  margin: 0 0 20px 0;
+  border-radius: 2px;
+  box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, .2);
+  transition: box-shadow .3s;
+
+  &:hover {
+    box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, .3);
+
+    .item__body-title {
+      color: $green;
+    }
+
+    .item__head {
+      border-bottom: 5px solid $green;
+    }
+  }
+
+  .item__link {
+    text-decoration: none;
+  }
+}
+
+.item__head {
+  background-color: #d1c4e9;
+  width: 300px;
+  height: 170px;
+  border-radius: 2px 2px 0 0;
+  border-bottom: 5px solid transparent;
+  transition: border .3s;
+}
+
+.item__head_js {
+  background-image: url(../assets/img/js.png);
+}
+
+.item__head_jquery {
+  background-image: url(../assets/img/jquery.png);
+}
+
+.item__head_base {
+  background-image: url(../assets/img/base.png);
+}
+
+.item__head_adaptive {
+  background-image: url(../assets/img/adaptive.png);
+}
+
+.item__head_btn-gen {
+  background-image: url(../assets/img/btn_gen.png);
+}
+
+.item__head_css {
+  background-image: url(../assets/img/css.png);
+}
+
+.item__body {
+  background-color: #fff;
+  padding: 15px 20px;
+}
+
+.item__body-title {
+  color: $black;
+  @include font(21px, regular);
+  line-height: 1.22;
+  margin: 0 0 12px 0;
+  transition: color .3s;
+}
+
+.item__body-disc {
+  color: $grey;
+  @include font(14px, light);
+  line-height: 1.62;
+  margin: 0 0 15px 0;
+}
+
+.item__body-time {
+  color: #b6b6b6;
+  @include font(14px, regular);
+
+  p {
+    display: inline-block;
+  }
+}
+
+.item__foot {
+  background: #f6f7f2;
+  color: $grey;
+  @include font(18px, regular);
+  padding: 20px 35px;
+  border-radius: 0 0 2px 2px;
+}
+
+.item__foot-checkbox {
+  display: none;
+}
+
+.item__foot-checkbox + .item__foot-label {
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 20px 0 0;
+    background-image: url(../assets/img/checked-sprite.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+}
+
+.item__foot-checkbox:checked + .item__foot-label {
+  &:before {
+    background-position: -30px 0;
+    cursor: pointer;
+  }
 }
