@@ -13,12 +13,14 @@ var uglify = require('gulp-uglify');
 var wiredep = require('gulp-wiredep');
 var useref = require('gulp-useref');
 var browserSync = require('browser-sync').create();
+var jade = require('gulp-jade');
+
 
 //Переменные для SVG
 var svgSprite = require('gulp-svg-sprite'),
   	svgmin = require('gulp-svgmin'),
   	cheerio = require('gulp-cheerio'),
- 	replace = require('gulp-replace');
+ 	  replace = require('gulp-replace');
 
 var config = {
   mode: {
@@ -49,12 +51,13 @@ gulp.task('production', ['clean'], function() {
 gulp.task('dev', ['build', 'watch', 'browser-sync']);
 // Задача 'build' представляет собой сборку в режиме продакшен.
 // Собирает проект.
-gulp.task('build', ['html', 'styles', 'scripts', 'assets']);
+gulp.task('build', ['jade', 'styles', 'scripts', 'assets']);
 // Задача 'watch' следит за всеми нашими файлами в проекте и при изменении тех или иных перезапустает соответсвующую задачу.
 gulp.task('watch', function() {
 	gulp.watch('src/styles/**/*.scss', ['styles']); //стили
     gulp.watch('src/js/**/*.js', ['scripts']); //скрипты
-    gulp.watch(['./bower.json', 'src/index.html'], ['html']); // html
+    gulp.watch('src/html/**/*.jade', ['jade']); //jade
+    // gulp.watch(['./bower.json', 'src/index.html'], ['html']); // html
     gulp.watch('./src/assets/**/*.*', ['assets']); //наши локальные файлы(картинки, шрифты)
     gulp.watch('src/**/*.*').on('change', browserSync.reload); //Перезапуск browserSynс
 });
@@ -91,18 +94,27 @@ gulp.task('cleanSprite', function() {
 gulp.task('clean', function() {
 	return gulp.src('build/')
 		.pipe(clean());
-})
-
-gulp.task('html', function() {
-	gulp.src('src/index.html')
-		.pipe(wiredep({ //Добавление ссылок на плагины bower.
-			directory: 'bower_components/'
-		}))
-		.pipe(gulp.dest('build/'))
-		.on('end', function() { //запуск задачу 'useref' по завершению задачи 'html'.
-			gulp.run('useref');
-		});
 });
+
+gulp.task('jade', function(){
+  gulp.src('src/html/*.jade')
+    .pipe(jade())
+    .pipe(gulp.dest('build/'))
+    .on('end', function() { //запуск задачу 'useref' по завершению задачи 'html'.
+      gulp.run('useref');
+    });
+});
+
+// gulp.task('html', function() {
+// 	gulp.src('src/index.html')
+// 		.pipe(wiredep({ //Добавление ссылок на плагины bower.
+// 			directory: 'bower_components/'
+// 		}))
+// 		.pipe(gulp.dest('build/'))
+// 		.on('end', function() { //запуск задачу 'useref' по завершению задачи 'html'.
+// 			gulp.run('useref');
+// 		});
+// });
 
 gulp.task('useref', function() {
 	return gulp.src('build/index.html')
@@ -155,4 +167,3 @@ gulp.task('sprite', function() {
     .pipe(svgSprite(config))
     .pipe(gulp.dest('./src/assets/img/sprite'));
 });
-
