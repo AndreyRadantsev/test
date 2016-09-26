@@ -1,6 +1,9 @@
 .about-student {
   background: #fff;
   padding: 70px 10px;
+}
+
+.about-student .container {
   @extend %clearfix;
 }
 
